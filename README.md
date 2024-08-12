@@ -30,7 +30,7 @@ After downloading the data from the DANDI archive to the local computer, they ca
 Here we provide the sample code for exporting data from NWB files through MatNWB and PyNWB APIs respectively. 
 
 - **MatNWB:** Download MATLAB script `draw_channels.m`. First, set the parameter of the `nwbRead` function to the path of the NWB file, and all the ictal and interictal fragments in the NWB file can be listed by the `nwb.acquisition` command. Then enter the `start time` and the `duration` parameters, and set the parameter of the `nwb.acquisition.get` function to the chosen fragment. Run the script to get the channel signals.
-- **PyNWB:** Download Python script `read_PyNWB.py`. First, set the parameter `filepath` as the path of the NWB file, and all the ictal and interictal fragments in the NWB file can be listed. Then set the parameter of the `nwb.acquisition` function to the chosen fragment. Run the script to get the channel signals.
+- **PyNWB:** Download Python script `read_PyNWB.py`. First, set the parameter `filepath` as the path of the NWB file, and all the ictal and interictal fragments in the NWB file can be listed. Then set the parameter of the `nwb.acquisition` function to the chosen fragment. get the channel signals.
 
 The following figure is an example for reading and plotting the data of a seizure fragment (raw LFP data, entire 10 min, all 12 channels) with MatNWB and PyNWB. In the plotted figure, the x-axis represents the number of time points, and the y-axis represents the signal amplitude of the shifted channels.
 
@@ -40,11 +40,10 @@ The following figure is an example for reading and plotting the data of a seizur
 
 ## MATLAB Analysis
 
-- **Power Spectrum Calculation:** 
-- **Seizure Onset Pattern Analysis:** 
-- **Interictal Spike Detection:**
+- **Power Spectrum Calculation:** First, the multi-site LFP signal should be exported and stored in the `data` variable. Second, initialize the variables. Set `chn_select` as the selected channel. Set `fre_high` as the upper limit frequency of the spectrum analyzed. Set `start_time` as the start time of the signal for analysis, and set `duration` as the duration of the signal for analysis. Third, Welch method will be used to calculate the PSD of the LFP signal (`pwelch` function, with 1.024 s Hamming window and 50% overlap by default). The parameters of `noverlap`, `nfft`, `window`, and `n_segments` can be adjusted according to the duration of the signal. Run the script to calculate the power spectrum of the LFP signal, and the PSD of the selected channel will be stored in the variable of `POWER`.
 
-
+- **Seizure Onset Pattern Analysis:** First, the multi-site LFP signal should be exported and stored in the `data` variable. Second,  initialize the variables. Set `channel` as the selected channel. Set `high_fre` as the upper limit frequency. Set `start_time` as the start time of the signal for analysis, and set `duration` as the duration of the signal for analysis. Third, `spectrogram` function will be used to calculate the Time Spectrum of the LFP signal by using short-time Fourier transform. The parameters of `noverlap`, `nfft`, `window`, and `Nw` can be adjusted according to the duration of the signal. Run the script to plot the selected signal in the time domain and its corresponding Time Spectrum in colormap, which can be used for seizure onset pattern analysis.
+- **Interictal Spike Detection:** First, the multi-site LFP signal should be exported and stored in the `data` variable. Second, initialize the variables. Set `channel` as the selected channel and set `duration` as the duration of the signal for analysis. Variable of `peak_amp` refers to the baseline threshold (baseline + 5*SD by default) to define the spike peaks, which can be modified if necessary. Run the script to plot the selected interictal signal in the time domain, the positive and negative thresholds in the dashed lines, and the spikes detected. 
 
 ## Contributors
 
