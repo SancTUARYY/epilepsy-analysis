@@ -23,9 +23,30 @@ All data in NWB files were released on the DANDI Archive ([Dandiset #1044](https
 
 ## Installation - MatNWB/PyNWB
 
+After downloading the data from the DANDI archive to the local computer, they can be exported by using PyNWB and MatNWB APIs. Instructions for [reading NWB files with PyNWB and MatNWB](https://nwb-overview.readthedocs.io/en/latest/file_read/file_read.html) were provided in NWB Overview documentation.
+
+## Data Plotting
+
+Here we provide the sample code for exporting data from NWB files through MatNWB and PyNWB APIs respectively. 
+
+- **MatNWB:** Download MATLAB script `draw_channels.m`. First, set the parameter of the `nwbRead` function to the path of the NWB file, and all the ictal and interictal fragments in the NWB file can be listed by the `nwb.acquisition` command. Then enter the `start time` and the `duration` parameters, and set the parameter of the `nwb.acquisition.get` function to the chosen fragment. Run the script to get the channel signals.
+- **PyNWB:** Download Python script `read_PyNWB.py`. First, set the parameter `filepath` as the path of the NWB file, and all the ictal and interictal fragments in the NWB file can be listed. Then set the parameter of the `nwb.acquisition` function to the chosen fragment. Run the script to get the channel signals.
+
+The following figure is an example for reading and plotting the data of a seizure fragment (raw LFP data, entire 10 min, all 12 channels) with MatNWB and PyNWB. In the plotted figure, the x-axis represents the number of time points, and the y-axis represents the signal amplitude of the shifted channels.
+
+![Fig6](E:\ZJU_BME_PhD\Epilepsy\Scientific_Data\Github_upload\Figures\Fig6.png)
+
+## MATLAB Analysis
+
+- **Power Spectrum Calculation:** 
+- **Seizure Onset Pattern Analysis:** 
+- **Interictal Spike Detection:**
 
 
 
+## Contributors
+
+- Haoqi Ni
 
 
 
