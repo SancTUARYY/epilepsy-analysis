@@ -34,7 +34,9 @@ Here we provide the sample code for exporting data from NWB files through MatNWB
 
 The following figure is an example for reading and plotting the data of a seizure fragment (raw LFP data, entire 10 min, all 12 channels) with MatNWB and PyNWB. In the plotted figure, the x-axis represents the number of time points, and the y-axis represents the signal amplitude of the shifted channels.
 
-![Fig6](E:\ZJU_BME_PhD\Epilepsy\Scientific_Data\Github_upload\Figures\Fig6.png)
+<div align="center">
+  <img src="https://github.com/SancTUARYY/epilepsy-analysis/blob/main/Figures/Fig1.png">
+</div>
 
 ## MATLAB Analysis
 
