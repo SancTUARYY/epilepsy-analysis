@@ -48,6 +48,8 @@ The following figure is an example for reading and plotting the data of a seizur
 ## Contributors
 
 - Haoqi Ni
+- Yufang Yang
+- Yuting Sun
 
 
 
